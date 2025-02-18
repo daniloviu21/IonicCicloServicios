@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PizzeriaService } from '../pizzeria.service';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,29 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(private pizzeria: PizzeriaService) {}
+
+  totalPedidos: number = 0;
+
+  ngOnInit() {
+    console.log('Home: OnInit');
+  }
+
+  ionViewWillEnter() {
+    console.log('Home: ionViewWillEnter');
+    this.totalPedidos = this.pizzeria.getTotalPedidos();
+  }
+
+  ionViewWillLeave() {
+    console.log("Home: ionViewWillLeave");
+  }
+
+  ionViewDidLeave() {
+    console.log("Home: ionViewDidLeave");
+  }
+
+  ngOnDestroy() {
+    console.log('Home: OnDestroy');
+  }
 
 }

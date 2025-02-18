@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>gryffindor</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-select label="Selecciones un sabor" placeholder="Pizza">
+      <ion-select-option value="peperoni">Peperoni</ion-select-option>
+      <ion-select-option value="banana">Banana</ion-select-option>
+      <ion-select-option value="quesos">4 quesos</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-button (click)="generarPedido('Gryffindor','Peperoni')">Realizar pedido</ion-button>
+
+  <h1 class="ion-padding">Mis pedidos:</h1>
+
+  <ion-list>
+    <ion-item *ngFor="let pedido of pedidos">
+      <ion-label>{{pedido.pizza}}</ion-label>
+      <small>{{pedido.casa}}</small>
+    </ion-item>
+  </ion-list>
+</ion-content>
